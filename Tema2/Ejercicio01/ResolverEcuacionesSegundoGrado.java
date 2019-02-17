@@ -24,7 +24,14 @@ public class ResolverEcuacionesSegundoGrado {
      * por consola indicándolo no se llamará al método calculitos()
      */
     void resolucion(){
-        
+        s1 = (-b + Math.sqrt(discriminante))/(2*a);
+        s2 = (-b - Math.sqrt(discriminante))/(2*a);
+        System.out.println("Las soluciones son: " + s1 +" y " + s2);
+        if (s1 == 0 || s2 == 0) {
+            System.out.println("No hay dos soluciones reales.");
+            return;
+        }
+        calculitos(s1, s2);
     }
 
     /* Este método, mediante métodos estáticos de la clase Math, 
@@ -42,6 +49,10 @@ public class ResolverEcuacionesSegundoGrado {
         double solMayor = num1;
         double solMenor = num2;
         System.out.println("Solución mayor: " + solMayor);
-        Math.exp
+        System.out.println("La esponencial elevada a la solución mayor vale: " + Math.exp(solMayor));
+        System.out.println("El coseno de la solucion menor vale: " + Math.cos(solMenor));
+        System.out.println("Soluciones redondeadas hasta cuatro decimales: " + Math.round(solMayor * 1000d) / 1000d + " y " + Math.round(solMenor * 1000d) / 1000d);
+        System.out.println("El arcoseno de la solución mayor en radianes: " + Math.asin(solMayor));
+        System.out.println("El arcoseno de la solución mayor en grados sexagesimales: " + Math.toDegrees(Math.asin(solMayor)));
     }
 }
